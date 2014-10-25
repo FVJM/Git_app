@@ -36,7 +36,7 @@ Puedes validar e identificar carpeta de instalacion con > bundle show rails
     Crear cuenta o logearse a GitHub(https://github.com): fvjm@hotmail.com
 9.1.-Crear el repositorio: Git_app , como publico
 9.2.-Subir nuestra copia al repositorio Git_app en GitHub:
-    >git remote add origin https://github.com/FVJM/Git_app.git
+    >git remote add origin https://github.com/FVJM/Git_app.git  //crear destino
     >git push -u origin master      //sube en ese instante
 10.-Subir mi app a Heroku:
     Crear cuenta o logearse a Heroku(https://www.heroku.com/): fvjm@hotmail.com
@@ -94,4 +94,9 @@ end
 13.-Vistas: se crean index y show
 14.-Via scaffold creo Categoria
 15.-Subir a Git y Heroku
-    >git commit -a -m "Actualizar cambios para Heroku"
+    >git add .
+    >git commit -a -m "miblog_app_v2"
+    >git push -u origin master      //sube en ese instante a GitHub
+    >git push heroku master     //copia en heroku y ejecuta bundle
+    >heroku run rake db:migrate //para crear la BD de la app si es necesario
+    >heroku open        //abre en un browser la aplicacion publicada en Heroku
