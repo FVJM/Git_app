@@ -1,0 +1,14 @@
+<html>
+<head>
+  <title>Curso de Ruby on Rails para NeContable</title>
+</head>
+<body>
+
+<% usuarios=User.all) %>
+<% usuarios.each do |usuario| %>
+    <%= usuario.nombre %>
+    <%= usuario.email %>
+<% end %>
+
+</body>
+</html>
