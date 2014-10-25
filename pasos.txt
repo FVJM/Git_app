@@ -1,0 +1,41 @@
+
+Pasos para una aplicacion web en RoR:
+01.-Instalar RailsInstaller.exe
+    Validar con ruby -v  /  rails -v. Si deseas poner los datos de tu cuenta en GIT
+02.-Instalar Rubymine 6.3.3.
+    Usar licencia o crack. Al entrar quitar actualizacion automatica. Font a 14 o 16
+1.-Para crear aplicacion base, dentro de Sites ejecuto: rails new miblog_app
+    Validar entrar a la carpeta: > cd miblog_app
+2.1.-Ejecutar Rubymine y abrir carpeta del proyecto creado.
+2.2.-Modifico Gemfile con los aplicaciones y versiones deseadas
+3.-Entro a la consola Ruby via: "Command Prompt with Ruby and Rails"
+4.-Entro a la carpeta miblog_app> bundle install --without production
+Puedes validar e identificar carpeta de instalacion con > bundle show rails
+5.-Ejecuto servidor web via consola: > rails server
+    En browser poner http://127.0.0.1:3000  , si no funciona hacerlo via Rubymine
+6.-Configuro cuenta GIT: si no lo hiciste al comiendo lo haces ahora:
+    >git config --global user.name "fvjm"
+    >git config --global user.email "fvjm@hotmail.com"
+    >git config --list
+7.-Implementar proyecto en local y en GitHub:
+    >git init           //inicializa un nuevo repositorio oculto
+7.1.-Para exclir archivos con .gitignore: modificar segun filtros indicados
+7.2.-Para crear primera version en local:
+    >git add .          //agrega el proyecto a git local(area temporal-unstage)
+    >git status         //lista archivos pendientes de grabar al repositorio
+    >git commit -m "miblog_app_v1"  //graba al repositorio local
+    >git log            //lista de commit
+8.-Ejemplo para Recuperar archivos borrados:
+    >rm -rf app/controllers/    //borra todos los controles
+    >ls app/controllers/        //mostrara los archivos que ya no estan
+    >git status         //analiza y lista nombres de archivos borrados
+    >git checkout -f    //-f fuerta sobreescritura
+    >git status         //indica que archivos estan recuperados
+    >ls app/controllers/        //mostrara los archivos en su sitio
+9.-Subir la app a GitHub:
+    Crear cuenta o logearse a GitHub(https://github.com): fvjm@hotmail.com
+9.1.-Crear el repositorio: Git_app , como publico
+9.2.-Subir nuestra copia al repositorio Git_app en GitHub:
+    >git remote add origin https://github.com/FVJM/Git_app.git
+    >git push -u origin master
+
