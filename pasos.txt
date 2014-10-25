@@ -37,5 +37,61 @@ Puedes validar e identificar carpeta de instalacion con > bundle show rails
 9.1.-Crear el repositorio: Git_app , como publico
 9.2.-Subir nuestra copia al repositorio Git_app en GitHub:
     >git remote add origin https://github.com/FVJM/Git_app.git
-    >git push -u origin master
+    >git push -u origin master      //sube en ese instante
+10.-Subir mi app a Heroku:
+    Crear cuenta o logearse a Heroku(https://www.heroku.com/): fvjm@hotmail.com
+10.1.-Instalar cliente Heroku: Bajar programa segun S.O. e instalarlo
+10.2.-Actualizar el repositorio local de ser necesario
+    >git commit -a -m "Actualizar Gemfile.lock para Heroku"
+10.3.-Sesion y subdominio en Heroku
+    >heroku login       //ingresar usuario y clave
+    >heroku create      //crea subdominio cualquiera para nuestra app
+10.4.-Desplegando en Heroku
+    >git push heroku master     //copia a heroku
+    >heroku run rake db:migrate //para crear la BD de la app si es necesario
+    >heroku rename nemiblogapp   //abres https://nemiblogapp.herokuapp.com/
+    >heroku open        //abre en un browser la aplicacion publicada en Heroku
 
+11.-Implementar modelo User
+    >rails generate model User nombre:string email:string
+    >bundle exec rake db:migrate        //crea la BD y la tabla users
+    >rails console --sandbox        //comando para entrar en consola irb
+    //Nuevo
+    >user=User.new
+    >user.nombre="Fredy Jurado"
+    >user.email="fvjm@hotmail.com"
+    >user.save
+    >user
+    >user=User.new(nombre: "Ada Mendoza", email: "aditamend@hotmail.com")
+    >user.save
+    >user=User.create(nombre: "Ricardo Jurado", email: "ricardo@hotmail.com")
+    >User.find(1)
+    >User.find_by_email("aditamend@hotmail.com")
+    >User.find_by(email:"aditamend@hotmail.com")    //a partir de Rails4
+    >User.first
+    >User.all
+    //pata Update
+    >user=User.find(1)
+    >user.email="fjurado@cofaco.com"
+    >user.save
+    >user.created_at
+    >user.update_attributes(nombre: "Lucha Monteagudo", email: "luchita@hotmail.com")
+    //Drop
+    >foo=User.find(3)
+    >foo.destroy
+    >User.destroy_all       //elimina todos
+    //validando campos
+    >user=User.new(nombre: "Ada Mendoza", email: "aditamend@hotmail.com")
+    >user.save      //salio false, porque no grabo al no cumplir con validaciones
+    >user.valid     //salio false cuando algun campo no aprueba validaciones
+    >user.errors.full_messages      //muestra tipo de error no cumplido
+12.- Uso de validaciones en modelo User: archivo models/user.rb
+class User < ActiveRecord::Base
+  validates :nombre, presence: true, length: {maximum: 5}
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, format: {with:VALID_EMAIL_REGEX }
+end
+13.-Vistas: se crean index y show
+14.-Via scaffold creo Categoria
+15.-Subir a Git y Heroku
+    >git commit -a -m "Actualizar cambios para Heroku"
