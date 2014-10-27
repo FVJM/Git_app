@@ -96,7 +96,7 @@ end
 15.-Subir a Git y Heroku
     >git add .
     >git commit -a -m "miblog_app_v2"
-    >git push -u origin master      //sube en ese instante a GitHub
-    >git push heroku master     //copia en heroku y ejecuta bundle
+    >git push -u origin master      //sube a GitHub
+    >git push heroku master     //sube a heroku y ejecuta bundle
     >heroku run rake db:migrate //para crear la BD de la app si es necesario
     >heroku open        //abre en un browser la aplicacion publicada en Heroku
